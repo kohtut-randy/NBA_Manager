@@ -20,13 +20,18 @@ const HomePage = () => {
   if (!isAuthenticated) return null;
 
   return (
-    <div className="container mx-auto p-4 bg-cyan-800 overflow-hidden">
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">NBA Team Manager</h1>
+    <div className="min-h-screen flex flex-col items-center justify-start py-8 px-2">
+      <header
+        className="w-full max-w-5xl mx-auto flex justify-between items-center mb-10 px-6 py-6 rounded-2xl shadow-lg bg-white/80 backdrop-blur-md border border-gray-200"
+        style={{ boxShadow: "0 8px 32px 0 rgba(37,99,235,0.08)" }}
+      >
+        <h1 className="text-4xl font-extrabold tracking-tight text-blue-700 drop-shadow-sm">
+          🏀 NBA Team Manager
+        </h1>
         <AuthStatus />
       </header>
 
-      <main className="space-y-8">
+      <main className="w-full max-w-5xl space-y-10 px-2">
         <TeamList />
         <TeamPlayers />
         <PlayerList />

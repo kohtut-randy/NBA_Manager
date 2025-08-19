@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f6f8fc;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary: #2563eb;
+  --secondary: #fbbf24;
+  --accent: #10b981;
+  --card-bg: #fff;
+  --card-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --card-bg: #18181b;
+    --card-shadow: 0 4px 24px 0 rgba(0,0,0,0.32);
   }
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background: #0a174e;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Geist', 'Inter', 'Segoe UI', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Card and button base styles for a more beautiful UI */
+.card {
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(37,99,235,0.12);
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.08);
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 16px 0 rgba(37,99,235,0.16);
+}
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-danger:hover {
+  background: #b91c1c;
 }

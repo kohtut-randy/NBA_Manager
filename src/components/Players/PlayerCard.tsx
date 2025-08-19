@@ -21,20 +21,24 @@ const PlayerCard = ({ player }: { player: Player }) => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <h3 className="text-lg text-black font-semibold">
+    <div className="card flex flex-col items-start">
+      <h3 className="text-xl font-bold text-blue-800 mb-1">
         {player.first_name} {player.last_name}
       </h3>
       {player.position && (
-        <p className="text-gray-600">Position: {player.position}</p>
+        <p className="text-gray-500 mb-1">
+          Position: <span className="font-semibold">{player.position}</span>
+        </p>
       )}
       {player.team && (
-        <p className="text-gray-600">Team: {player.team.full_name}</p>
+        <p className="text-gray-500 mb-2">
+          Team: <span className="font-semibold">{player.team.full_name}</span>
+        </p>
       )}
 
       <button
         onClick={() => setIsModalOpen(true)}
-        className="mt-2 bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded"
+        className="btn-primary mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
         disabled={teams.length === 0 || isPlayerInTeam}
         title={
           teams.length === 0

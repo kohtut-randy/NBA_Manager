@@ -46,30 +46,38 @@ const TeamList = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {teams.map((team) => (
-          <div key={team.id} className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="text-lg text-black font-semibold">{team.name}</h3>
-            <p className="text-black">Players: {team.playerCount}</p>
-            <p className="text-black">Region: {team.region}</p>
-            <p className="text-black">Country: {team.country}</p>
+          <div key={team.id} className="card">
+            <h3 className="text-xl text-blue-800 font-bold mb-1">
+              {team.name}
+            </h3>
+            <p className="text-gray-700 mb-1">
+              Players: <span className="font-semibold">{team.playerCount}</span>
+            </p>
+            <p className="text-gray-700 mb-1">
+              Region: <span className="font-semibold">{team.region}</span>
+            </p>
+            <p className="text-gray-700 mb-2">
+              Country: <span className="font-semibold">{team.country}</span>
+            </p>
 
-            <div className="mt-3 space-x-2">
+            <div className="mt-3 flex flex-wrap gap-2">
               <button
                 onClick={() => dispatch(selectTeam(team.id))}
-                className="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded"
+                className="btn-primary"
               >
                 View Players
               </button>
               <button
                 onClick={() => handleEdit(team)}
-                className="bg-yellow-500 hover:bg-yellow-700 text-white px-3 py-1 rounded"
+                className="btn-primary bg-yellow-400 hover:bg-yellow-500 text-black"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(team.id)}
-                className="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded"
+                className="btn-danger"
               >
                 Delete
               </button>

@@ -102,57 +102,61 @@ const TeamFormModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
-        <h2 className="text-xl font-bold mb-4 text-black">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md border border-gray-200">
+        <h2 className="text-2xl font-bold mb-6 text-black">
           {initialData ? "Edit Team" : "Create Team"}
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div>
             <label className="block text-gray-700 mb-2">Team Name</label>
             <input
               {...register("name")}
-              className="w-full px-3 py-2 border rounded text-black"
+              className="w-full px-3 py-2 border rounded text-black focus:ring-2 focus:ring-blue-400"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 
-          <div className="mb-4">
+          <div>
             <label className="block text-gray-700 mb-2">Region</label>
             <input
               {...register("region")}
-              className="w-full px-3 py-2 border rounded text-black"
+              className="w-full px-3 py-2 border rounded text-black focus:ring-2 focus:ring-blue-400"
             />
             {errors.region && (
-              <p className="text-red-500 text-sm">{errors.region.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.region.message}
+              </p>
             )}
           </div>
 
-          <div className="mb-4">
+          <div>
             <label className="block text-gray-700 mb-2">Country</label>
             <input
               {...register("country")}
-              className="w-full px-3 py-2 border rounded text-black"
+              className="w-full px-3 py-2 border rounded text-black focus:ring-2 focus:ring-blue-400"
             />
             {errors.country && (
-              <p className="text-red-500 text-sm">{errors.country.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.country.message}
+              </p>
             )}
           </div>
 
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-end space-x-2 pt-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-gray-300 rounded"
+              className="px-4 py-2 bg-gray-300 rounded font-semibold"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded"
+              className="px-4 py-2 bg-blue-500 text-white rounded font-semibold"
             >
               {initialData ? "Update" : "Create"}
             </button>
